@@ -25,7 +25,7 @@
           packages.default = pkgs.buildGoModule {
             pname = "flakehash";
             # Keep in sync with internal/meta.Version.
-            version = "0.1.0";
+            version = "0.1.1";
             src = ./.;
             ldflags = [
               "-s"
