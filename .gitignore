@@ -1,0 +1,29 @@
+### dotenv ###
+.env
+
+### Go ###
+bin/
+coverage/
+*.test
+*.out
+go.work
+
+### Nix ###
+result
+
+### Release ###
+CHANGELOG.md
+
+### GoLand/Intellij ###
+.idea/
+*.iml
+.run/
+coverage.out
+.run
+*.iws
+out/
+
+### AI ###
+.claude
+.agents
+skills-lock.json

@@ -1,0 +1,13 @@
+on: [ push ]
+jobs:
+  build:
+    runs-on: native
+    steps:
+      - uses: actions/checkout@v7.0.1
+        name: Checkout
+      - uses: ./.forgejo/actions/native-build
+        name: Native - build
+      - uses: ./.forgejo/actions/native-scan
+        name: Native - scan
+      - uses: ./.forgejo/actions/native-test
+        name: Native - test

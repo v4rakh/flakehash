@@ -1,0 +1,22 @@
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "version to use"
+        required: true
+        type: string
+jobs:
+  release:
+    runs-on: native
+    steps:
+      - uses: actions/checkout@v7.0.1
+        name: Checkout
+      - uses: ./.forgejo/actions/native-build
+        name: Native - build
+      - uses: ./.forgejo/actions/native-scan
+        name: Native - scan
+      - uses: ./.forgejo/actions/release
+        name: Forgejo release
+        with:
+          version: ${{ inputs.version }}
+          token: ${{ secrets.FORGE_TOKEN }}

@@ -1,0 +1,7 @@
+runs:
+  using: "composite"
+  steps:
+    - name: Native - checkstyle, build
+      shell: bash
+      run: |
+        nix develop --command bash -c "make clean dependencies lint build-all"
