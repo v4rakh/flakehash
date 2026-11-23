@@ -33,12 +33,14 @@ $ flakehash .#default
 nix build git+https://git.myservermanager.com/varakh/flakehash
 ```
 
-Or enable the bundled NixOS module:
+Or import the Nix package:
 
 ```nix
+{ inputs, pkgs, ... }:
 {
-  imports = [ flakehash.nixosModules.default ];
-  programs.flakehash.enable = true;
+  environment.systemPackages = [ inputs.flakehash.packages.${pkgs.stdenv.hostPlatform.system}.default ];
+
+  # or, for home-manager: home.packages = [ ... ];
 }
 ```
 

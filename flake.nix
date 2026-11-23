@@ -46,12 +46,5 @@
             ];
           };
         };
-
-      flake = {
-        nixosModules.default = import ./nix/module.nix {
-          inherit self;
-          lib = nixpkgs.lib;
-        };
-      };
     };
 }
